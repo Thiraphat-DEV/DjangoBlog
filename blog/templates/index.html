@@ -1,3 +1,4 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +16,7 @@
 
 	<!-- Display django.contrib.messages as bootstrp alert -->
 	{%bootstrap_messages%}
-
+	<link rel="stylesheet" type="text/css" href="{%static 'blog.css' %}" />
 	<style>
 		.bd-placeholder-img {
 			font-size: 1.125rem;
@@ -63,7 +64,7 @@
 		<div class="navbar navbar-dark bg-dark shadow-sm">
 			<div class="container">
 				<a href="/blog" class="navbar-brand d-flex align-items-center">
-					<strong>THIRAPHAT-DEV BLOG</strong>
+					<strong class="title">THIRAPHAT-DEV BLOG</strong>
 				</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 					data-bs-target="#navbarHeader" aria-controls="navbarHeader"
@@ -81,9 +82,10 @@
 			<div class="row pb-3">
 				<div class="col-sm-12">
 					<div class="card" style="width: 18rem;">
-						<img src="#" class="card-img-top" alt="#">
+						{% if post.photo %}
+						<img src="{{post.photo.url}}" class="card-img-top" alt="{{post.title}}">
+						{%endif%}
 						<div class="card-body">
-
 							<h5 class="card-title">{{post.title}}</h5>
 							<p class="card-text">{{post.body}}
 							</p>
