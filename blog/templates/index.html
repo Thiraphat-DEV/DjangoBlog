@@ -6,13 +6,182 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Blog with thiraphat</title>
+
+	<!-- include bootstrap4 library -->
+	{%load bootstrap4%}
+
+	{% bootstrap_css %}
+	{% bootstrap_javascript jquery='full' %}
+
+	<!-- Display django.contrib.messages as bootstrp alert -->
+	{%bootstrap_messages%}
+
+	<style>
+		.bd-placeholder-img {
+			font-size: 1.125rem;
+			text-anchor: middle;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			user-select: none;
+		}
+
+		@media (min-width: 768px) {
+			.bd-placeholder-img-lg {
+				font-size: 3.5rem;
+			}
+		}
+	</style>
+
 </head>
 
 <body>
-	{% for post in posts%}
-	<h1>{{post.title}}</h1>
-	<p>{{post.body}}</p>
-	{%endfor%}
+	<header class="mb-3">
+		<div class="collapse bg-dark " id="navbarHeader">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-8 col-md-7 py-4">
+						<h4 class="text-white">About</h4>
+						<p class="text-muted">Add some information about the album below, the
+							author, or
+							any other background context. Make it a few sentences long so
+							folks can
+							pick up some informative tidbits. Then, link them off to some
+							social
+							networking sites or contact information.</p>
+					</div>
+					<div class="col-sm-4 offset-md-1 py-4">
+						<h4 class="text-white">Contact</h4>
+						<ul class="list-unstyled">
+							<li><a href="#" class="text-white">Follow on Twitter</a></li>
+							<li><a href="#" class="text-white">Like on Facebook</a></li>
+							<li><a href="#" class="text-white">Email me</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="navbar navbar-dark bg-dark shadow-sm">
+			<div class="container">
+				<a href="/blog" class="navbar-brand d-flex align-items-center">
+					<strong>THIRAPHAT-DEV BLOG</strong>
+				</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+					data-bs-target="#navbarHeader" aria-controls="navbarHeader"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+			</div>
+		</div>
+	</header>
+
+	<main>
+
+		<div class="container">
+			{% for post in posts%}
+			<div class="row pb-3">
+				<div class="col-sm-12">
+					<div class="card" style="width: 18rem;">
+						<img src="#" class="card-img-top" alt="#">
+						<div class="card-body">
+
+							<h5 class="card-title">{{post.title}}</h5>
+							<p class="card-text">{{post.body}}
+							</p>
+							<a href="#" class="btn btn-primary">Go somewhere</a>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			{%endfor%}
+			<!-- START THE FEATURETTES -->
+			<hr class="featurette-divider">
+
+			<div class="row featurette">
+				<div class="col-md-7">
+					<h2 class="featurette-heading">First featurette heading. <span
+							class="text-muted">It’ll blow your mind.</span></h2>
+					<p class="lead">Some great placeholder content for the first featurette here.
+						Imagine some exciting prose here.</p>
+				</div>
+				<div class="col-md-5">
+					<svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+						width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img"
+						aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice"
+						focusable="false">
+						<title>Placeholder</title>
+						<rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%"
+							fill="#aaa" dy=".3em">500x500</text>
+					</svg>
+
+				</div>
+			</div>
+
+			<hr class="featurette-divider">
+
+			<div class="row featurette">
+				<div class="col-md-7 order-md-2">
+					<h2 class="featurette-heading">Oh yeah, it’s that good. <span
+							class="text-muted">See for yourself.</span></h2>
+					<p class="lead">Another featurette? Of course. More placeholder content here to
+						give you an idea of how this layout would work with some actual
+						real-world content in place.</p>
+				</div>
+				<div class="col-md-5 order-md-1">
+					<svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+						width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img"
+						aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice"
+						focusable="false">
+						<title>Placeholder</title>
+						<rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%"
+							fill="#aaa" dy=".3em">500x500</text>
+					</svg>
+
+				</div>
+			</div>
+
+			<hr class="featurette-divider">
+
+			<div class="row featurette">
+				<div class="col-md-7">
+					<h2 class="featurette-heading">And lastly, this one. <span
+							class="text-muted">Checkmate.</span></h2>
+					<p class="lead">And yes, this is the last block of representative placeholder
+						content. Again, not really intended to be actually read, simply here to
+						give you a better view of what this would look like with some actual
+						content. Your content.</p>
+				</div>
+				<div class="col-md-5">
+					<svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+						width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img"
+						aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice"
+						focusable="false">
+						<title>Placeholder</title>
+						<rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%"
+							fill="#aaa" dy=".3em">500x500</text>
+					</svg>
+
+				</div>
+			</div>
+
+			<hr class="featurette-divider">
+
+			<!-- /END THE FEATURETTES -->
+
+		</div><!-- /.container -->
+
+
+		<!-- FOOTER -->
+		<footer class="container">
+			<p class="float-end"><a href="#">Back to top</a></p>
+			<p>&copy; 2017–2021 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a
+					href="#">Terms</a></p>
+		</footer>
+	</main>
+
+
+
+
 </body>
 
 </html>
