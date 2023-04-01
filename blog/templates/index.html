@@ -1,80 +1,5 @@
-{%load static%}
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Blog with thiraphat</title>
-
-	<!-- include bootstrap4 library -->
-	{%load bootstrap4%}
-
-	{% bootstrap_css %}
-	{% bootstrap_javascript jquery='full' %}
-
-	<!-- Display django.contrib.messages as bootstrp alert -->
-	{%bootstrap_messages%}
-	<link rel="stylesheet" type="text/css" href="{%static 'blog.css' %}" />
-	<style>
-		.bd-placeholder-img {
-			font-size: 1.125rem;
-			text-anchor: middle;
-			-webkit-user-select: none;
-			-moz-user-select: none;
-			user-select: none;
-		}
-
-		@media (min-width: 768px) {
-			.bd-placeholder-img-lg {
-				font-size: 3.5rem;
-			}
-		}
-	</style>
-
-</head>
-
-<body>
-	<header class="mb-3">
-		<div class="collapse bg-dark " id="navbarHeader">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-8 col-md-7 py-4">
-						<h4 class="text-white">About</h4>
-						<p class="text-muted">Add some information about the album below, the
-							author, or
-							any other background context. Make it a few sentences long so
-							folks can
-							pick up some informative tidbits. Then, link them off to some
-							social
-							networking sites or contact information.</p>
-					</div>
-					<div class="col-sm-4 offset-md-1 py-4">
-						<h4 class="text-white">Contact</h4>
-						<ul class="list-unstyled">
-							<li><a href="#" class="text-white">Follow on Twitter</a></li>
-							<li><a href="#" class="text-white">Like on Facebook</a></li>
-							<li><a href="#" class="text-white">Email me</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="navbar navbar-dark bg-dark shadow-sm">
-			<div class="container">
-				<a href="/blog" class="navbar-brand d-flex align-items-center">
-					<strong class="title">THIRAPHAT-DEV BLOG</strong>
-				</a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-					data-bs-target="#navbarHeader" aria-controls="navbarHeader"
-					aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-			</div>
-		</div>
-	</header>
-
+	{%extends 'base.html' %}
+	{%block content%}
 	<main>
 
 		<div class="container">
@@ -87,9 +12,9 @@
 						{%endif%}
 						<div class="card-body">
 							<h5 class="card-title">{{post.title}}</h5>
-							<p class="card-text">{{post.body}}
+							<p class="card-text">{{post.body|slice:":100"}}
 							</p>
-							<a href="#" class="btn btn-primary">Go somewhere</a>
+							<a href="{%url 'post_detail' post.id%}" class="btn btn-primary">View Detail</a>
 
 						</div>
 					</div>
@@ -181,9 +106,4 @@
 		</footer>
 	</main>
 
-
-
-
-</body>
-
-</html>
+{%endblock%}

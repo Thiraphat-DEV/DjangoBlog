@@ -7,3 +7,15 @@ from .models import Post
 def index(request):
     posts = Post.objects.all()
     return render(request, "index.html", {'posts': posts})
+
+def post_detail(request, id):
+    post = Post.objects.get(id=id)
+    return render(request, 'post_detail.html', {'post': post})
+
+def post_search(request):
+    if 'search_keyword' in request.GET:
+        search_keyword = request.GET['search_keyword']
+        posts = Post.objects.filter(title__contains = search_keyword)
+        return render(request, 'index.html', {'posts': posts})
+    else:
+        return redirect('index')
