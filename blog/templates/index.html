@@ -12,7 +12,7 @@
 						{%endif%}
 						<div class="card-body">
 							<h5 class="card-title">{{post.title}}</h5>
-							<p class="card-text">{{post.body|slice:":100"}}
+							<p class="card-text">{{post.body|safe|truncatechars_html:200}}
 							</p>
 							<a href="{%url 'post_detail' post.id%}" class="btn btn-primary">View Detail</a>
 

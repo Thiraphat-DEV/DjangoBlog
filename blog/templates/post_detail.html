@@ -15,7 +15,8 @@
 				{%endif%}
 				<div class="card-body">
 					<h5 class="card-title">{{post.title}}</h5>
-					<p class="card-text">{{post.body}}
+					<!-- truncatechars_html is remove html name  -->
+					<p class="card-text">{{post.body|safe}}
 					</p>
 					<a href="{%url 'index' %}" class="btn btn-primary">Back to Home</a>
 
