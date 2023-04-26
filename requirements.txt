@@ -4,6 +4,7 @@ bleach==6.0.0
 Django==4.1.7
 django-bootstrap4==22.3
 django-summernote==0.8.20.0
+fontawesome-free==5.15.4
 Pillow==9.4.0
 pytz==2023.3
 six==1.16.0

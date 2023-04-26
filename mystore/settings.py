@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'bootstrap4'
 ]
 
-INSTALLED_APPS += ('django_summernote',  )
+INSTALLED_APPS += ('django_summernote',)
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -124,12 +124,11 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-X_FRAME_OPTIONS = 'SAMEORIGIN' #allow everyfileds
+X_FRAME_OPTIONS = 'SAMEORIGIN'  # allow everyfileds
 # custom font
 SUMMERNOTE_CONFIG = {
     'summernote': {
-        'fontNames' : ['Cascadia', 'Sarabun', 'Monospace', 'sans-serif']
+        'fontNames': ['Cascadia', 'Sarabun', 'Monospace', 'sans-serif']
     }
 }
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
